@@ -13,7 +13,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 5rem;
+    gap: 3rem;
 }
 
 .container {
@@ -25,6 +25,89 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    filter: drop-shadow(0px 0px 8px #2d2a2a);
+    outline: 1px solid #ffffff;
+    transition: outline 1s ease 0s;
+    animation: myAnim 2s ease 0s 1 normal forwards;
+    animation: myAnim2 35s ease 0s infinite normal forwards;
+}
+
+.container:hover {
+    outline: 8px solid #ffffff;
+}
+
+@keyframes myAnim {
+	0% {
+		animation-timing-function: ease-in;
+		opacity: 1;
+		transform: translateY(-45px);
+	}
+
+	24% {
+		opacity: 1;
+	}
+
+	40% {
+		animation-timing-function: ease-in;
+		transform: translateY(-24px);
+	}
+
+	65% {
+		animation-timing-function: ease-in;
+		transform: translateY(-12px);
+	}
+
+	82% {
+		animation-timing-function: ease-in;
+		transform: translateY(-6px);
+	}
+
+	93% {
+		animation-timing-function: ease-in;
+		transform: translateY(-4px);
+	}
+
+	25%,
+	55%,
+	75%,
+	87% {
+		animation-timing-function: ease-out;
+		transform: translateY(0px);
+	}
+
+	100% {
+		animation-timing-function: ease-out;
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+
+@keyframes myAnim2 {
+	0%,
+	100% {
+		transform: translateX(0%);
+		transform-origin: 50% 50%;
+	}
+
+	15% {
+		transform: translateX(-30px) rotate(6deg);
+	}
+
+	30% {
+		transform: translateX(15px) rotate(-6deg);
+	}
+
+	45% {
+		transform: translateX(-15px) rotate(3.6deg);
+	}
+
+	60% {
+		transform: translateX(9px) rotate(-2.4deg);
+	}
+
+	75% {
+		transform: translateX(-6px) rotate(1.2deg);
+	}
 }
 
 textarea {
@@ -69,6 +152,7 @@ textarea {
 
 h1 {
     font-size: 2.6rem;
-    color: white;
+    color: black;
+    padding-top: 19px;
     text-align: center;
 }

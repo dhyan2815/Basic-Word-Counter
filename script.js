@@ -8,24 +8,24 @@ function updateCounts() {
     const text = input.value;
 
     // Reset counts if text is empty
-    if (text.trim() === "") {
+    if (text === "") {
         resetCounts();
         return;
     }
 
-    // Count characters (includes spaces)
+    // Count characters including all characters, including spaces and newlines.
     characterCount.innerText = text.length;
 
-    // Split by non-whitespace to count words
-    const wordsArray = text.match(/\S+/g) || [];
+    // Count words (split by whitespace and filter out empty strings)
+    const wordsArray = text.split(/\s+/).filter((word) => word.length > 0);
     wordCount.innerText = wordsArray.length;
 
-    // Split sentences by punctuation and ensure non-empty sentences
-    const sentenceArray = text.match(/[^\s](.*?)[.!?](\s|$)/g) || [];
-    sentenceCount.innerText = sentenceArray.length;
+    // Count sentences (using common sentence-ending punctuation)
+    const sentenceArray = text.match(/[^.!?]*[.!?]/g) || [];
+    sentenceCount.innerText = sentenceArray.filter((sentence) => sentence.trim().length > 0).length;
 
-    // Split paragraphs by newlines and ensure non-empty paragraphs
-    const paragraphArray = text.split(/\n+/).filter((p) => p.trim().length > 0);
+    // Count paragraphs (split by double newlines or a single newline for simplicity)
+    const paragraphArray = text.split(/\n+/).filter((paragraph) => paragraph.trim().length > 0);
     paragraphCount.innerText = paragraphArray.length;
 }
 
